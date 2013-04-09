@@ -1,0 +1,18 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="nav">
+        	<div class="span1"></div>
+	        <a class="brand" href="#">CrowdFunder</a>
+	       
+		        <ul class="nav">
+			        <li class="<%= 'active' if current_page? root_path %>">
+			                <%= link_to 'Home', :root %>
+		            </li>
+		            <li class="<%= 'active' if current_page? projects_path %>">
+		                <%= link_to 'Projects', :projects %>
+		            </li>
+	            </ul>
+	        </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>

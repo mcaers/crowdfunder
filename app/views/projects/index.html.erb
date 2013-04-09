@@ -1,8 +1,11 @@
-<h1>Listing projects!!!</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<h1>Listing projects</h1>
 
 <ul>
-<% @projects.each do |project| %>
-	<li><%=project.title %></li>
-	<%end%>
+	<% @projects.each do |project| %>
+	  <li>
+	    <%= link_to project.title, project %>
+	    <br>
+	    <%= project.teaser %>
+	  </li>
+	<% end %>
 </ul>

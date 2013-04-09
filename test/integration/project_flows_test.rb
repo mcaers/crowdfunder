@@ -18,6 +18,34 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
   	assert page.has_content?("Waterproof Whiteboard")
   	assert page.has_content?("Something else?")
 
-  	#assert that the page has projects listed
+    click_link 'Waterproof Whiteboard'
+    assert_equal project_path(p2),current_path
+    assert find('h1:first').has_content? p2.title
   end
+
+  	#assert that the page has projects listed
+  	test "navigation" do
+        visit "/"
+        assert_equal root_path, current_path
+        # The home nav element should be active
+        assert_equal "Home", find('.navbar ul li.active a').text
+
+        find('.navbar ul').click_link('Projects') # more specific: 
+        assert_equal projects_path, current_path
+
+        # The projects nav element should be active
+        assert_equal "Projects", find('.navbar ul li.active a').text
+    end
+
+    # test "navigation" do
+    #   visit "/"
+    #   assert_equal root_path, current_path
+    #   assert_equal "Home", find("ul.nav li.active a").text
+    
+    # visit "/projects"
+    # assert_equal projects_url, current_path
+    # assert_equal "Projects", find("ul.nav.li.active a").text
+    # end
+  	
+  
 end
