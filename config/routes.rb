@@ -4,14 +4,14 @@ Crowdfunder::Application.routes.draw do
     resources :pledges, only: [:new, :create]
   end
 
+  resources :users, :except => [:index, :destroy]
+  resource :session, :only => [:new, :create, :destroy]
+
   namespace :my do 
     resources :projects do # => My::ProjectsController
       resources :images, only: [:index, :create]
     end
   end
-
-  resources :users, :except => [:index, :destroy]
-  resource :session, :only => [:new, :create, :destroy]
   
   root :to =>"welcome#index"
   
