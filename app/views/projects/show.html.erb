@@ -1,5 +1,17 @@
-<h1><%= @project.title%></h1>
+<h1><%= @project.title %></h1>
 
-<p> 
-	A project by <%=@project.user.first_name %> <%= @project.user.last_name %>
+<p>
+	By <%= @project.user.first_name %> <%= @project.user.last_name %>
 </p>
+
+<hr/>
+
+<%= link_to 'Back This Project', [:new, @project, :pledge], class: 'btn btn-success btn-large' %>
+
+
+
+<!-- On the project page I see a form with a text field for the amount and a button called ‘Pledge Now’
+I am logged in
+If I am not logged in, clicking on ‘Pledge Now’ takes me to the login page
+The amount is an integer (no decimals)
+The currency is CAD -->
