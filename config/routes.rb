@@ -10,8 +10,6 @@ Crowdfunder::Application.routes.draw do
     end
   end
 
-  
-
   resources :users, :except => [:index, :destroy]
   resource :session, :only => [:new, :create, :destroy]
   

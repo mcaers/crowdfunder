@@ -1,9 +1,14 @@
 class Pledge < ActiveRecord::Base
+
+  attr_accessible :amount
+  				# Note: :project_id and :user_id should not be modifiable through mass assignment
+
   belongs_to :user
   belongs_to :project
-  attr_accessible :amount
-
+ 
   validates :user, presence: true
   validates :project, presence: true
-  validates :amount, numericality: {greater_than: 0}
+
+  validates :amount,  :numericality => {:only_integer => true, :greater_than => 0}, :presence => true
+  
 end

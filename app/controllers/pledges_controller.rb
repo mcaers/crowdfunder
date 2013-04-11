@@ -12,9 +12,9 @@ before_filter :require_project
 		@pledge.user = current_user
 
 		if @pledge.save
-			redirect_to @project, notice: "Thank-you for making a pledge for my project."
+			redirect_to @project, notice: "Thank-you for pledging."
 		else
-			render.new
+			render :new
 		end
 	end
 

@@ -8,7 +8,8 @@
 
   <div class="span6">
 
-    <%=redner 'layouts/form_errors', :f = f %>
+
+    <%=render 'shared/form_errors', :f => f %>
 
     <%= f.text_field :first_name, placeholder: "First Name", class: "input-block-level" %>
     <%= f.text_field :last_name, placeholder: "Last Name", class: "input-block-level" %>
