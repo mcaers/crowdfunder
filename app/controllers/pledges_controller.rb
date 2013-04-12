@@ -12,6 +12,7 @@ before_filter :require_project
 		@pledge.user = current_user
 
 		if @pledge.save
+			UserMailer.new_pledge(@pledge).deliver
 			redirect_to @project, notice: "Thank-you for pledging."
 		else
 			render :new
